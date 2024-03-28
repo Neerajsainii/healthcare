@@ -1,7 +1,4 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class UserManager(BaseUserManager):
@@ -21,7 +18,7 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class UserSignup(AbstractBaseUser):
-    # Your model fields go here
+    # Common fields for all user types
     firstname = models.CharField(max_length=25)
     lastname = models.CharField(max_length=25)
     age = models.DecimalField(max_digits=10, decimal_places=2)
@@ -39,6 +36,16 @@ class UserSignup(AbstractBaseUser):
 
     def __str__(self):
         return self.email
+
+class Admin(UserSignup):
+    AdminId = models.CharField(max_length=25)
+
+class Doctor(UserSignup):
+    DocId = models.CharField(max_length=25)
+
+
+class MedicalPractitioner(UserSignup):
+    MedId = models.CharField(max_length=25)
 
 class Contact(models.Model):
     full_name = models.CharField(max_length=100)

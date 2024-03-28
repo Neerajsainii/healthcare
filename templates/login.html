@@ -60,7 +60,7 @@
             </div>
             <div class="middle-body"></div>
             <div class="right-body">
-                <form method="post" action="{% url 'userLogin' %}">
+                <form method="post" action="{% url 'adminLogin' %}">
                     {% csrf_token %}
                     <input class="input-box" type="email" placeholder="Email*" name="email" required>
                     <input class="input-box" type="password" placeholder="Password*" name="password" required>

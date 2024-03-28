@@ -45,19 +45,43 @@
             </div>
             <div class="middle-body"></div>
             <div class="right-body">
-                <form method="post" action="{% url 'userSignup' %}">
+
+                <form method="post" action="{% url 'signup' %}">
                     {% csrf_token %}
-                    <input class="first-name" type="text" placeholder="First Name*" name="firstname" value="{{ user.first_name }}" required>
-                    <input class="last-name" type="text" placeholder="Last Name*" name="lastname" value="{{ user.last_name }}" required>
-                    <input class="age" type="number" placeholder="Age*" name="age" value="{{ user.age }}" required>
-                    <input class="gender" type="text" placeholder="Gender*" name="gender" value="{{ user.gender }}" required>
-                    <input class="email" type="email" placeholder="Email*" name="email" value="{{ user.email }}" required>
-                    <input class="number" type="number" placeholder="Mobile Number*" name="mobile_number" value="{{ user.mobile_number }}" required>
-                    <input class="password" type="password" placeholder="New Password" name="password" required>
-                    <input class="re-enter-password" type="password" placeholder="Re-Enter New Password" name="repassword" required>
-                    <a href="/info"><button class="signup-btn" type="submit">Sign in</button></a>
+                    <label for="firstname">First Name:</label><br>
+                    <input type="text" id="firstname" name="firstname" required><br><br>
+                    
+                    <label for="lastname">Last Name:</label><br>
+                    <input type="text" id="lastname" name="lastname" required><br><br>
+                    
+                    <label for="age">Age:</label><br>
+                    <input type="number" id="age" name="age" required><br><br>
+                    
+                    <label for="gender">Gender:</label><br>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select><br><br>
+                    
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
+                    
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password" required><br><br>
+                    
+                    <label for="repassword">Confirm Password:</label><br>
+                    <input type="password" id="repassword" name="repassword" required><br><br>
+                    
+                    <label for="user_type">User Type:</label><br>
+                    <select id="user_type" name="user_type" required>
+                        <option value="admin">Admin</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="medical_practitioner">Medical Practitioner</option>
+                    </select><br><br>
+            
+                    <button type="submit">Sign Up</button>
                 </form>
-                
+ 
                 
                 <div class="new-user"><a href="/login"><span style="text-decoration: underline;">Log in</span></a></div>
             </div>
